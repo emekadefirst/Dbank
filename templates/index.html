@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DBank</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link type="text/css" rel="stylesheet" href="{% static 'assets/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/main.css' %}">
+</head>
+<body>
+    <div class="alert alert-success" role="alert">
+    </div>
+    <p>Welcome back, {{ user.username }}</p>
+    <div class="container">
+        <img src="{% static 'assets/dbank_logo.png' %}" alt="DBank logo" width="100"/>
+        <h1>Your main Balance is {{ balance }}</h1>
+        {% if error_message %}
+            <div class="error">{{ error_message }}</div>
+        {% endif %}
+        <div class="divider"></div>
+        <form method="post">
+            {% csrf_token %}
+            {% comment %} <h2>Amount to Top Up</h2> {% endcomment %}
+            {% comment %} <input id="input-amount" type="number" name="amount" step="0.01" value=""/>
+            <input type="hidden" name="action" value="deposit"> <!-- Hidden field to indicate action --> {% endcomment %}
+            <h2>Amount to Withdraw</h2>
+            <input id="withdrawal-amount" type="number" name="amount" step="0.01" value=""/>
+            <input id="submit-btn" type="submit" value="Finalize Transaction" />
+        </form>
+    </div>
+</body>
+<script src="{% static 'assets/index.js' %}"></script>
+
+</html>

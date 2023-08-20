@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DBank</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link type="text/css" rel="stylesheet" href="{% static  'assets/main.css' %}" />
+    <link rel="stylesheet" href="{% static  'assets/form.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <div class="divider"></div>
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Email</h2>
+            <input id="input-amount" type="email" name="email" value="" />
+            <h2>Username</h2>
+            <input id="input-amount" type="text" name="username" value="" />
+            <h2>Password</h2>
+            <input id="withdrawal-amount" type="password" name="password1"  value="" />
+            <h2>Confirm password</h2>
+            <input id="withdrawal-amount" type="password" name="password2"  value="" />
+            <button id="submit-btn">Signup</buuton>
+        </form>
+    </div>
+</body>
+<script src="{% static 'assets/index.js' %}"></script>
+
+</html>
